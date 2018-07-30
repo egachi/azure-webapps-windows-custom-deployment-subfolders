@@ -59,6 +59,7 @@ IF NOT DEFINED MSBUILD_PATH (
   SET MSBUILD_PATH=%WINDIR%\Microsoft.NET\Framework\v4.0.30319\msbuild.exe
 )
 
+SET DEPLOYMENT_TARGET="%DEPLOYMENT_TARGET%" + "\mvc4"
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Deployment
 :: ----------
@@ -70,7 +71,7 @@ echo Handling .NET Web Application deployment.
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 2. KuduSync
-echo Kudu Sync from "%DEPLOYMENT_TEMP%" to "%DEPLOYMENT_TARGET\mvc4%"
+echo Kudu Sync from "%DEPLOYMENT_TEMP%" to "%DEPLOYMENT_TARGET%"
 call %KUDU_SYNC_COMMAND% -q -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.deployment;deploy.cmd" 2>nul
 IF !ERRORLEVEL! NEQ 0 goto error
 
