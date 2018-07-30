@@ -59,7 +59,7 @@ IF NOT DEFINED MSBUILD_PATH (
   SET MSBUILD_PATH=%WINDIR%\Microsoft.NET\Framework\v4.0.30319\msbuild.exe
 )
 
-SET DEPLOYMENT_TARGET="%DEPLOYMENT_TARGET%" + "\mvc4"
+SET DEPLOYMENT_TARGET="%DEPLOYMENT_TARGET%\mvc4"
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Deployment
 :: ----------
