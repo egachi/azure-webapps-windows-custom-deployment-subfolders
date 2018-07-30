@@ -47,12 +47,12 @@ IF NOT DEFINED KUDU_SYNC_COMMAND (
   SET KUDU_SYNC_COMMAND=node "%appdata%\npm\node_modules\kuduSync\bin\kuduSync"
 )
 
+SET DEPLOYMENT_TARGET="%DEPLOYMENT_TARGET%\nodejs"
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: Deployment
 :: ----------
 
 echo Handling node.js deployment.
-SET DEPLOYMENT_TARGET="%DEPLOYMENT_TARGET%\nodejs\"
 :: 1. KuduSync
 echo Kudu Sync from "%DEPLOYMENT_SOURCE%\nodejs" to "%DEPLOYMENT_TARGET%"
 call %KUDU_SYNC_COMMAND% -q -f "%DEPLOYMENT_SOURCE%\nodejs" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.deployment;deploy.cmd" 2>nul
