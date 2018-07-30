@@ -2,8 +2,10 @@
 :: ----------------------
 :: KUDU Deployment Script
 :: ----------------------
+
 :: Prerequisites
 :: -------------
+
 :: Verify node.js installed
 where node 2>nul >nul
 IF %ERRORLEVEL% NEQ 0 (
@@ -22,7 +24,9 @@ IF NOT DEFINED DEPLOYMENT_SOURCE (
   SET DEPLOYMENT_SOURCE=%~dp0%.
 )
 
-SET DEPLOYMENT_TARGET=%ARTIFACTS%\wwwroot\mvc4\
+IF NOT DEFINED DEPLOYMENT_TARGET (
+  SET DEPLOYMENT_TARGET=%ARTIFACTS%\wwwroot\mvc4\
+)
 
 IF NOT DEFINED NEXT_MANIFEST_PATH (
   SET NEXT_MANIFEST_PATH=%ARTIFACTS%\manifest
