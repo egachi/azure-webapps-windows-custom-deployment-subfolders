@@ -2,10 +2,8 @@
 :: ----------------------
 :: KUDU Deployment Script
 :: ----------------------
-
 :: Prerequisites
 :: -------------
-
 :: Verify node.js installed
 where node 2>nul >nul
 IF %ERRORLEVEL% NEQ 0 (
